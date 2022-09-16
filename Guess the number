@@ -1,0 +1,36 @@
+#working guess the number game
+
+import random
+number = random.randint(1,10)
+
+def guess():
+    attempt = 0
+    within_range = (1,2,3,4,5,6,7,8,9,10)
+    guess = '0'
+    
+    while True:
+        guess = input('guess a number 1-10')
+     
+        #input validation   
+        try:
+            guess = int(guess)
+            if guess in within_range:
+                pass
+            else:
+                continue
+                       
+        except ValueError:
+            print('try another number')
+            #continue returns to the start of the loop and ignores all the other conditions
+            continue
+                 
+        #win check
+        if guess > number:
+            print('too high')
+            continue
+        elif guess < number:
+            print('too low')
+            continue
+        else:
+            print('you got it')
+        break
